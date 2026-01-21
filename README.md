@@ -11,7 +11,7 @@ Zephyr RTOS workspace using **forest topology** with a **freestanding manifest r
 - Nucleo-F413ZH
 
 ## Setup for Windows users
-First create a myZephyrWorkspace directory
+First craete a myZephyrWorkspace directory
 ```cmd
 mkdir myZephyrWorkspace
 ```
