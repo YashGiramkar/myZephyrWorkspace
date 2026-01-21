@@ -1,9 +1,11 @@
 manifest:
-  version: "0.13"
+  version: "0.14"
 
   remotes:
     - name: zephyrproject
       url-base: https://github.com/zephyrproject-rtos
+    - name: yash
+      url-base: https://github.com/YashGiramkar
 
   projects:
     - name: zephyr
@@ -12,6 +14,12 @@ manifest:
       revision: v3.7-branch
       path: zephyr
       import: true
+
+    # ---- Application as a west project ----
+    - name: app-blinky
+      remote: yash
+      repo-path: app-blinky
+      revision: main
 
   self:
     path: .
