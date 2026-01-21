@@ -13,10 +13,15 @@ Zephyr RTOS workspace using **forest topology** with a **freestanding manifest r
 ## Setup for Windows users
 ### Run the following command from inside myZephyrWorkspace
 ```cmd
-west init -l manifest-repo
+mkdir D:\Study\myZephyrWorkspace
+cd D:\Study\myZephyrWorkspace
+
+west init -m https://github.com/YashGiramkar/myZephyrWorkspace.git
 west update
-west zephyr-export
+```
+
 
 ## Build for example app-blinky
-cd app-blinky
-west build -p always -b nucleo_f413zh
+```cmd
+west build -b nucleo_f413zh app-blinky
+```
