@@ -61,12 +61,40 @@ west-workspace/
 At this point applications would also have been checcked out, but the applications would be head detached state.
 So before proceeding any further, we can just re-attach the head with following command.
 For sample repository app-blinky the comamnd goes as follows:
+### Change directory to designated application subdirectory
 ```cmd
 cd app-blinky
-git pull --rebase origin main
+```
+### Run a sanity check for all the branches present
+```cmd
+git branch -a
+```
+Ideally the output for the command should be something like:
+```cmd
+* (HEAD detached at refs/heads/manifest-rev)
+  manifest-rev
+```
+### Create a local branch main and reattach the head
+```cmd
+git checkout -b main manifest-rev
 ```
 
-
+### Verify
+```cmd
+git status
+```
+Expected:
+```cmd
+On branch main
+nothing to commit, working tree clean
+```
+### Link the branch to the remote
+If you plan to push later, fetch the remote and set upstream:
+```cmd
+git remote -v
+git fetch origin
+git branch --set-upstream-to=origin/main
+```
 
 ## Build for example app-blinky
 Change the directory to the required application directory:
