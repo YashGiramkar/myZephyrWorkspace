@@ -21,5 +21,10 @@ manifest:
       repo-path: app-blinky
       revision: main
 
+    - name: button_polling_led
+      remote: yash
+      repo-path: button_polling_led
+      revision: main
+
   self:
     path: .
