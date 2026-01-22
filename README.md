@@ -31,6 +31,42 @@ west update
 west zephyr-export
 ```
 
+Post running the above mentioned command you should see the following repository structure:
+
+```cmd
+west-workspace/
+├── app1/               # .git/ project
+│   ├── CMakeLists.txt
+│   ├── prj.conf
+│   └── src/
+│       └── main.c
+├── app2/               # .git/ project
+│   ├── CMakeLists.txt
+│   ├── prj.conf
+│   └── src/
+│       └── main.c
+├── manifest-repo/      # .git/ never modified by west
+│   └── west.yml        # main manifest with optional import(s) and override(s)
+├── modules/
+│   └── lib/
+│       └── zcbor/      # .git/ project from either the main manifest or
+│                       #       from some import
+│
+└── zephyr/             # .git/ project
+    └── west.yml        # This can be partially imported with lower precedence or ignored.
+                        # Only the 'manifest-rev' version can be imported.
+```
+
+## Attach the deattached applciations head
+At this point applications would also have been checcked out, but the applications would be head detached state.
+So before proceeding any further, we can just re-attach the head with following command.
+For sample repository app-blinky the comamnd goes as follows:
+```cmd
+cd app-blinky
+git pull --rebase origin main
+```
+
+
 
 ## Build for example app-blinky
 Change the directory to the required application directory:
